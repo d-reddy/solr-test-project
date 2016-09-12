@@ -65,7 +65,7 @@ public class Solr {
         ArrayList<Integer> searchDocResults = new ArrayList<Integer>();
 
         docs.forEach((val) -> {
-            searchDocResults.add(val.getAsJsonObject().get("savo_item_asset_id").getAsInt());
+            searchDocResults.add(val.getAsJsonObject().get("reddy_item_id").getAsInt());
         });
 
         return searchDocResults;
