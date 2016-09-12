@@ -1,0 +1,22 @@
+{
+  "index": {
+    "path": "/solr/[TODO_UPDATE_TO_COLLECTION]/update?commit=true",
+    "data": [{
+      "add": {
+        "doc": {
+          "id": "-1!-1",
+          "reddy_item_id": 3,
+          "content": "test"
+        }
+      }
+    }]
+  },
+  "search": {
+    "path" : "/solr/[TODO_UPDATE_TO_COLLECTION]/select?q=test&fl=reddy_item_id&wt=json&shard.keys=-1!",
+    "expectedResult" : [-1]
+  },
+  "cleanup" : {
+    "path" : "/solr/[TODO_UPDATE_TO_COLLECTION]/update?commit=true",
+    "data" : {"delete":[-1!-1]}
+  }
+}

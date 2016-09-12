@@ -1,0 +1,50 @@
+{
+  "index": {
+    "path": "/solr/[TODO_UPDATE_TO_COLLECTION]/update?commit=true",
+    "data": [{
+      "add": {
+        "doc": {
+          "id": "-1!-1",
+          "reddy_item_id": -1,
+          "content": "test"
+        }
+      }},{
+      "add": {
+        "doc": {
+          "id": "-1!-2",
+          "reddy_item_id": -2,
+          "content": "test"
+        }
+      }},{
+      "add": {
+        "doc": {
+          "id": "-1!-3",
+          "reddy_item_id": -3,
+          "content": "clinical"
+        }
+      }},{
+      "add": {
+        "doc": {
+          "id": "-1!-4",
+          "reddy_item_id": -4,
+          "content": "test"
+        }
+      }},{
+      "add": {
+        "doc": {
+          "id": "-1!-5",
+          "reddy_item_id": -5,
+          "content": "clinical"
+        }
+      }}
+    ]
+  },
+  "search": {
+    "path" : "/solr/[TODO_UPDATE_TO_COLLECTION]/select?q=clinical&fl=reddy_item_id&wt=json&shard.keys=-1!",
+    "expectedResult" : [-3, -5]
+  },
+  "cleanup" : {
+    "path" : "/solr/[TODO_UPDATE_TO_COLLECTION]/update?commit=true",
+    "data" : {"delete":[-1!-1,-1!-2,-1!-3,-1!-4,-1!-5]}
+  }
+}
